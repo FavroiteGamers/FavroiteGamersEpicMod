@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "epicmod:block/computer_front",
+    "side": "epicmod:block/computer_side",
+    "top": "epicmod:block/computer_top"
+  }
+}

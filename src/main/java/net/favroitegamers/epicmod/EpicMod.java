@@ -1,6 +1,15 @@
 package net.favroitegamers.epicmod;
 
 import com.mojang.logging.LogUtils;
+import net.favroitegamers.epicmod.block.ModBlock;
+import net.favroitegamers.epicmod.item.ModItems;
+import net.favroitegamers.epicmod.networking.ModMessages;
+import net.favroitegamers.epicmod.painting.ModPaintings;
+import net.favroitegamers.epicmod.villager.ModVillagers;
+import net.favroitegamers.epicmod.world.feature.ModConfiguredFeatures;
+import net.favroitegamers.epicmod.world.feature.ModPlacedFeatures;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -21,6 +30,14 @@ public class EpicMod
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModItems.register(modEventBus);
+        ModBlock.register(modEventBus);
+        ModPaintings.register(modEventBus);
+
+        ModVillagers.register(modEventBus);
+
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -28,9 +45,13 @@ public class EpicMod
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
+    private void commonSetup(final FMLCommonSetupEvent event){
+         event.enqueueWork(() -> {
+             ModMessages.register();
+            ModVillagers.registerPOIs();
+         });
 
+        ModMessages.register();
     }
 
 
@@ -40,6 +61,7 @@ public class EpicMod
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+
         }
     }
 }

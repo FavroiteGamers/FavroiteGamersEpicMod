@@ -1,0 +1,20 @@
+{
+  "item.epicmod.metal": "Metal",
+  "item.epicmod.raw_metal": "Raw Metal",
+  "item.epicmod.cherry_seeds": "Cherry Crop",
+  "item.epicmod.cherry": "Cherry",
+  "item.epicmod.mallet": "Mallet",
+
+  "block.epicmod.metal_block": "Block of Metal",
+   "block.epicmod.deepslate_metal_ore": "Deepslate Metal Ore",
+  "block.epicmod.cherry_crop": "Cherry Crop",
+  "block.epicmod.metal_ore": "Metal Ore",
+  "block.epicmod.workbench": "Workbench",
+  "block.epicmod.computer": "Computer",
+
+
+  "entity.minecraft.villager.epicmod.metal_smith": "Metal Smith",
+
+  "key.category.epicmod.epicmodkeybinds": "Epic Mod",
+  "key.epicmod.help": "Open Help Menu"
+}
